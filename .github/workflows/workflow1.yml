@@ -23,14 +23,14 @@ jobs:
             - name: Log in to Docker Hub
               uses: docker/login-action@v3
               with:
-                  registry: $JF_URL
-                  username: $JF_USER
-                  password: $JF_TOKEN
+                  registry: ${{ env.JF_URL }}
+                  username: ${{ env.JF_USER }}
+                  password: ${{ env.JF_TOKEN }}
             - name: Extract metadata (tags, labels) for Docker
               id: meta
               uses: docker/metadata-action@v5
               with:
-                  images: $JF_URL/docker-repo-local/silly-app
+                  images: ${{ env.JF_URL }}/docker-repo-local/silly-app
                   tags: |
                       type=raw,value=${{ github.run_number }}
                       type=sha,format=long
