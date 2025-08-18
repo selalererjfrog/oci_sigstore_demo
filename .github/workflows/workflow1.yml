@@ -35,7 +35,7 @@ jobs:
               id: meta
               uses: docker/metadata-action@v5
               with:
-                  images: ${{ steps.jfrog_hostname.outputs.JFROG_HOSTNAME }} /docker-repo-local/silly-app
+                  images: ${{ steps.jfrog_hostname.outputs.JFROG_HOSTNAME }}/docker-repo-local/silly-app
                   tags: |
                       type=raw,value=${{ github.run_number }}
                       type=sha,format=long
