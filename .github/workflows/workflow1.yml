@@ -2,8 +2,6 @@ name: Create a docker OCI image with sigstore evidence in it
 
 on:
     push:
-        paths:
-            - '**'
     workflow_dispatch:
 
 env:
@@ -29,7 +27,8 @@ jobs:
             - name: Get JFrog hostname
               id: jfrog_hostname
               run: |
-                  echo "JFROG_HOSTNAME=${{ env.JF_URL#https:// }}" >> $GITHUB_OUTPUT
+                  echo "JFROG_HOSTNAME=${JF_URL#https://}" >> $GITHUB_OUTPUT
+                  echo "JFROG_HOSTNAME=$JFROG_HOSTNAME"
             - name: Extract metadata (tags, labels) for Docker
               id: meta
               uses: docker/metadata-action@v5
