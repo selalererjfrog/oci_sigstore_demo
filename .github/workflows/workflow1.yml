@@ -27,8 +27,10 @@ jobs:
             - name: Get JFrog hostname
               id: jfrog_hostname
               run: |
-                  echo "JFROG_HOSTNAME=${JF_URL#https://}" >> $GITHUB_OUTPUT
-                  echo "JFROG_HOSTNAME=$JFROG_HOSTNAME"
+                  echo "JF_URL='$JF_URL'"
+                  JFROG_HOST_NAME="${JF_URL#https://}"
+                  echo "JFROG_HOSTNAME='$JFROG_HOSTNAME'"
+                  echo "JFROG_HOSTNAME=$JFROG_HOSTNAME" >> $GITHUB_OUTPUT
             - name: Extract metadata (tags, labels) for Docker
               id: meta
               uses: docker/metadata-action@v5
