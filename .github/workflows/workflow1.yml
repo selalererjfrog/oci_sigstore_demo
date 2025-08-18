@@ -28,7 +28,7 @@ jobs:
               id: jfrog_hostname
               run: |
                   echo "JF_URL='$JF_URL'"
-                  JFROG_HOST_NAME="${JF_URL#https://}"
+                  JFROG_HOSTNAME="${JF_URL#https://}"
                   echo "JFROG_HOSTNAME='$JFROG_HOSTNAME'"
                   echo "JFROG_HOSTNAME=$JFROG_HOSTNAME" >> $GITHUB_OUTPUT
             - name: Extract metadata (tags, labels) for Docker
