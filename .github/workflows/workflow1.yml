@@ -13,6 +13,11 @@ jobs:
     create-docker:
         name: Build and attest docker
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write 
+            id-token: write
+            attestations: write
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
