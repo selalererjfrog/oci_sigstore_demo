@@ -40,7 +40,7 @@ jobs:
                       type=raw,value=${{ github.run_number }}
                       type=sha,format=long
             - name: Build and push Docker image
-              id: docker
+              id: docker_step
               uses: docker/build-push-action@v5
               with:
                   context: .
@@ -52,4 +52,4 @@ jobs:
               uses: actions/attest-build-provenance@v2
               with:
                   subject-name: ${{ steps.jfrog_hostname.outputs.JFROG_HOSTNAME }}/docker-repo-local/silly-app
-                  subject-digest: {{ steps.docker.outputs.digest }}
+                  subject-digest: ${{ steps.docker_step.outputs.digest }}
