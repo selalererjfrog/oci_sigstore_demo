@@ -53,6 +53,10 @@ jobs:
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
                   provenance: true
+            - name: Echo stuff
+              run: |
+                  echo "Subject name for attestation: ${{ steps.jfrog_hostname.outputs.JFROG_HOSTNAME }}/docker-repo-local/silly-app"
+                  echo "Digest for attestation: ${{ steps.docker_step.outputs.digest }}"
             - name: Generate docker attestation
               uses: actions/attest-build-provenance@v2
               with:
