@@ -62,3 +62,4 @@ jobs:
               with:
                   subject-name: ${{ steps.jfrog_hostname.outputs.JFROG_HOSTNAME }}/docker-repo-local/silly-app
                   subject-digest: ${{ steps.docker_step.outputs.digest }}
+                  push-to-registry: true
